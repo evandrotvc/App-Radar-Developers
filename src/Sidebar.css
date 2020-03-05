@@ -1,0 +1,73 @@
+aside {
+    width: 320px;
+    background: #FFF;
+    box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.02);
+    border-radius: 2px;
+    padding: 30px 20px;
+}
+
+aside-strong { /*Configura o titulo da barra de cadastro*/
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    color: #333;
+}
+/*Dá um distancia entre o titulo cadastrar com as barras de input*/
+aside form{
+    margin-top: 30px;
+}
+
+/*A partir da segundo input, de uma distancia*/
+aside form .input-block + .input-block{ 
+    margin-top: 20px;
+}
+
+aside form .input-group{
+    margin-top: 20px;
+    display: grid; /*faz que lati e longi fiquem um do lado do outro*/
+    gap: 20px;
+    grid-template-columns: 1fr  1fr;
+}
+
+/*Tira um margin top em excesso em longitude
+Todos input group  não recebem mais margin-top, se estiverem no input block!
+*/
+aside form .input-group .input-block{
+    margin-top: 0;
+}
+
+/*Configura os rotulos que identificam os inputs*/
+aside form .input-block label{
+    color: #acacac;
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+}
+
+aside form .input-block input{
+    width: 100%;
+    height: 32px;
+    font-size: 14px;
+    color: #666;
+    border: 2;
+    border-bottom: 1px solid #eee;
+
+}
+/*Aplica só para o botao submit*/
+aside form button[type = "submit"]{
+    width: 100%;
+    border: 0;
+    margin-top: 30px;
+    background: #7d40e7;
+    border-radius: 2px;
+    padding: 15px 20px;
+    font-size: 16px; /*configura cor da fonte "salvar"*/
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer; /*quando mouse em cima co botão, muda pra mãozinha*/
+    transition: background 0.5s;
+}
+/*Quando mouse estiver em cima do botão salvar, fica mais escuro*/
+aside form button[type = "submit"]:hover{
+    background: #6931ca;
+}

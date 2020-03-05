@@ -1,0 +1,74 @@
+main {
+    flex: 1; /*faz com que main ocupe todo espaço disponivel dele*/
+}
+/*configura a lista de devs*/
+main ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr; /*coloca 2 colunas para os devs*/
+    gap: 20px; /*cria uma distancias nas 4 direções para os devs em 20px*/
+    list-style: none;
+}
+
+/*configura layot de cada dev*/
+li.dev-item{
+
+    background: #FFF;
+    box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.02);
+    border-radius: 2px;
+    padding: 20px;
+}
+
+/*Configura a imagem dos devs*/
+li.dev-item header img {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%; /*imagem fica redonda no css*/
+}
+
+li.dev-item header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+li.dev-item header .user-info{
+    margin-left: 10px;
+}
+
+/*Titulo: nome do usuario*/
+.user-info strong{
+display: block;
+font-size: 16px;
+color: #333;
+}
+
+/*tecnologias*/
+.user-info span{
+    font-size: 13px;
+    color: #999;
+    margin-top: 2px;
+    
+}
+
+li.dev-item p{
+    color: #666;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 10px 0;
+}
+/*Menor q 550 a largura da tela? Devs ficam alinhados em uma única coluna apenas*/
+@media (max-width: 550px){
+    main ul{
+        grid-template-columns: 1fr;
+    }
+}
+
+li.dev-item p{
+    color: #8e4dff;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+li.dev-item a:hover {
+    color: #5a2ea6;
+}

@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap'); /*Fonte da letra importada do chrome*/
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+/*coloca root pois está no index.js que é o centro da aplicacao */
+html,body , #root{
+    height: 100%;/*Ocupa 100% altura da tela  */
+}
+
+body {
+    background: #E5E6F0;
+    -webkit-font-smoothing: antialiased; /*Deixa a fonte mais legível no google chrome*/
+
+}
+
+body , input , button {
+    font-family: Roboto, sans-serif;
+}
