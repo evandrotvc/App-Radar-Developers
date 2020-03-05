@@ -15,7 +15,7 @@ body: request.body (uso: Dados para criação ou alteração de um registro)
 const express = require('express');
 const mongoose = require('mongoose')
 const routes = require('./routes') // importa as rotas
-
+const cors = require('cors')
 //pega a resposta quando acessa a web
 const app = express();
 // link pegado do site mongodb atlas criado para esa apliacação
@@ -23,6 +23,7 @@ mongoose.connect('mongodb+srv://omnistack:omnistack@cluster0-undq9.mongodb.net/w
     useNewUrlParser: true, // linha 20 e 21 são para tirar avisos do terminal
     useUnifiedTopology: true, 
 })
+app.use(cors()) // libera o acesso pra todo tipo de aplicação, REACT pode agir agora
 app.use(express.json()) // Express entende agora requisições q tem JSON(formato)
 
 // se quisesse acessar www.omnistack.com/users , com o comando abaixo , quando entrasse no localhost, acessaria essa campo de usuarios

@@ -3,7 +3,6 @@ const Dev = require('../models/Dev')
 // recebe as requisições e Guarda as info no banco de dados
 // Controller tem geralmente 5 funções: show(mostra apenas 1) , index(mostra uma lista dev), store, update, destroy
 module.exports = {
-
     async index(request, response){
         const devs = await Dev.find() // lista TODOS os usúarios no banco
         return response.json(devs)
