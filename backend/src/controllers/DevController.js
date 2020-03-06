@@ -1,5 +1,6 @@
 const axios = require('axios')
 const Dev = require('../models/Dev')
+const {findConnection , sendMessage} = require('../websocket')
 // recebe as requisições e Guarda as info no banco de dados
 // Controller tem geralmente 5 funções: show(mostra apenas 1) , index(mostra uma lista dev), store, update, destroy
 module.exports = {
@@ -37,6 +38,16 @@ module.exports = {
                 techs: tec_array,
                 location,
             }) 
+            //Filtrando as conexões do websocket que estão no máx 10 km de dist e 
+            // que o novo dev tenha Pelo menos 1 das tecs filtradas
+            const sendSocketMessageTo = findConnection(
+                {latitude , longitude},
+                tec_array,
+                )
+            console.log(sendSocketMessageTo)
+
+            sendMessage(sendSocketMessageTo , 'novo_dev' , dev)
+    
         }
        
         // usa-se .json nas respostas sempre!!! para ocorrer a comunicação do back com o FRONT END

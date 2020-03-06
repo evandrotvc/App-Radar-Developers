@@ -16,8 +16,16 @@ const express = require('express');
 const mongoose = require('mongoose')
 const routes = require('./routes') // importa as rotas
 const cors = require('cors')
+const http = require('http') // aplicação houve tanto http, quanto requisições web socket (serve para comunic em tempo real)
+const {setupWebsocket} = require('./websocket')
+
+
 //pega a resposta quando acessa a web
 const app = express();
+const server = http.Server(app) // extrai o server http do express
+
+setupWebsocket(server)
+
 // link pegado do site mongodb atlas criado para esa apliacação
 mongoose.connect('mongodb+srv://omnistack:omnistack@cluster0-undq9.mongodb.net/week10?retryWrites=true&w=majority' , {
     useNewUrlParser: true, // linha 20 e 21 são para tirar avisos do terminal
@@ -32,4 +40,6 @@ app.use(express.json()) // Express entende agora requisições q tem JSON(format
 // Usaremos mongoDB (Não relacional ou poucos relacionamentos)
 app.use(routes) // agora todas rotas da aplicação estão cadastradas
 
-app.listen(3333)
+//app.listen(3333)
+
+server.listen(3333)
